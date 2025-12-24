@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Videos</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; margin: 0; padding: 20px; }
+        .container { max-width: 1200px; margin: auto; }
+        header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .logout { position: absolute; top: 20px; right: 20px; color: white; text-decoration: none; }
+        .btn { padding: 12px 24px; background: linear-gradient(to right, #4facfe, #00f2fe); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; }
+        table {
+            width: 100%;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #eee; }
+        th { background: #1e3c72; color: white; }
+        tr:hover { background: #f8fbff; }
+        .delete-btn {
+            color: #e74c3c;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .delete-btn:hover { text-decoration: underline; }
+        .no-videos {
+            text-align: center;
+            padding: 60px;
+            color: #777;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Manage Videos</h1>
+            <p>All uploaded videos for "Our Work" page</p>
+            <a href="/admin/logout" class="logout">Logout</a>
+        </header>
+
+        <div style="margin-bottom: 20px; text-align: right;">
+            <a href="/admin/videos/add" class="btn">+ Add New Video</a>
+            <a href="/admin/dashboard" class="btn" style="margin-left: 10px; background: #95a5a6;">← Back to Dashboard</a>
+        </div>
+
+        <% if (videos.length === 0) { %>
+            <div class="no-videos">
+                <p>No videos uploaded yet.</p>
+                <a href="/admin/videos/add" class="btn">Upload Your First Video</a>
+            </div>
+        <% } else { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Uploaded</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% videos.forEach((video, index) => { %>
+                        <tr>
+                            <td><%= index + 1 %></td>
+                            <td><strong><%= video.title %></strong></td>
+                            <td><%= video.description || '—' %></td>
+                            <td><%= new Date(video.createdAt).toLocaleDateString() %></td>
+                            <td>
+                                <a href="/admin/videos/delete/<%= video._id %>" 
+                                   class="delete-btn" 
+                                   onclick="return confirm('Are you sure? This will delete the video from Cloudinary and your site permanently.')">
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } %>
+    </div>
+</body>
+</html>

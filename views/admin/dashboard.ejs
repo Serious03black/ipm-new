@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            background: #f5f7fa;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 260px;
+            background: white;
+            box-shadow: 2px 0 15px rgba(0, 0, 0, 0.05);
+            padding: 30px 0;
+            position: fixed;
+            height: 100vh;
+            z-index: 100;
+            transition: width 0.3s ease;
+        }
+
+        .logo {
+            padding: 0 25px 30px;
+            border-bottom: 1px solid #eef2f7;
+            margin-bottom: 30px;
+        }
+
+        .logo h2 {
+            color: #1a1a1a;
+            font-size: 22px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo h2::before {
+            content: "⚡";
+            font-size: 24px;
+        }
+
+        .nav-menu {
+            padding: 0 20px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border-radius: 12px;
+            color: #64748b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item:hover {
+            background: #f1f5f9;
+            color: #1e3c72;
+        }
+
+        .nav-item.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .nav-item i {
+            font-size: 20px;
+        }
+
+        .nav-divider {
+            height: 1px;
+            background: #eef2f7;
+            margin: 25px 0;
+        }
+
+        .logout-btn {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 14px 20px;
+            margin: 8px 20px;
+            border-radius: 12px;
+            color: #ef4444;
+            text-decoration: none;
+            font-weight: 500;
+            background: #fef2f2;
+            border: none;
+            width: calc(100% - 40px);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background: #fee2e2;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            flex: 1;
+            margin-left: 260px;
+            padding: 30px;
+            transition: margin-left 0.3s ease;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eef2f7;
+        }
+
+        .header h1 {
+            color: #1a1a1a;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .stats-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .reel-stat .stat-icon {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+        }
+
+        .blog-stat .stat-icon {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+        }
+
+        .stat-info h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+        }
+
+        .stat-info p {
+            color: #64748b;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .content-section {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .add-btn {
+            padding: 10px 24px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 500;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .add-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Grid Styles */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .item-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eef2f7;
+            transition: all 0.3s ease;
+        }
+
+        .item-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .thumbnail {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .thumbnail video,
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .type-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            color: rgba(255, 255, 255, 0.9);
+            pointer-events: none;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+        }
+
+        .info {
+            padding: 20px;
+        }
+
+        .info h4 {
+            margin: 0 0 10px;
+            color: #1a1a1a;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .info p {
+            margin: 0 0 15px;
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eef2f7;
+        }
+
+        .date {
+            color: #94a3b8;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .delete-btn {
+            color: #ef4444;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 8px;
+            background: #fef2f2;
+            transition: all 0.3s ease;
+        }
+
+        .delete-btn:hover {
+            background: #fee2e2;
+        }
+
+        .no-items {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 20px;
+            color: #94a3b8;
+            font-size: 16px;
+        }
+
+        .no-items i {
+            font-size: 48px;
+            margin-bottom: 20px;
+            opacity: 0.5;
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 80px;
+                padding: 20px 0;
+            }
+
+            .logo h2 span,
+            .nav-item span,
+            .logout-btn span {
+                display: none;
+            }
+
+            .nav-item {
+                justify-content: center;
+            }
+
+            .main-content {
+                margin-left: 80px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <h2><span>Admin Pro</span></h2>
+        </div>
+
+        <nav class="nav-menu">
+            <a href="#reels" class="nav-item active">
+                <i class="fas fa-film"></i>
+                <span>Reels</span>
+            </a>
+            <a href="#blogs" class="nav-item">
+                <i class="fas fa-blog"></i>
+                <span>Blogs</span>
+            </a>
+
+            <div class="nav-divider"></div>
+
+            <a href="/admin/videos/add/reel" class="nav-item">
+                <i class="fas fa-plus-circle"></i>
+                <span>Add Reel</span>
+            </a>
+            <a href="/admin/blogs/add" class="nav-item">
+                <i class="fas fa-edit"></i>
+                <span>Add Blog</span>
+            </a>
+        </nav>
+
+        <a href="/admin/logout" class="logout-btn">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+        </a>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="header">
+            <h1>Dashboard Overview</h1>
+            <div class="date-display">
+                <span id="current-date"></span>
+            </div>
+        </div>
+
+        <!-- Statistics Cards (Reels + Blogs only) -->
+        <div class="stats-cards">
+            <div class="stat-card reel-stat">
+                <div class="stat-icon">
+                    <i class="fas fa-film"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>
+                        <%= videos.filter(v=> v.type === 'reel').length %>
+                    </h3>
+                    <p>Total Reels</p>
+                </div>
+            </div>
+
+            <div class="stat-card blog-stat">
+                <div class="stat-icon">
+                    <i class="fas fa-blog"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>
+                        <%= blogs ? blogs.length : 0 %>
+                    </h3>
+                    <p>Total Blogs</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reels Section -->
+        <section id="reels" class="content-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-film"></i>
+                    Reels
+                </h2>
+                <a href="/admin/videos/add/reel" class="add-btn">
+                    <i class="fas fa-plus"></i>
+                    Add Reel
+                </a>
+            </div>
+
+            <div class="grid">
+                <% if (videos.filter(v=> v.type === 'reel').length > 0) { %>
+                    <% videos.filter(v=> v.type === 'reel').forEach(reel => { %>
+                        <div class="item-card">
+                            <div class="thumbnail">
+                                <video muted>
+                                    <source src="<%= reel.videoUrl %>?f_auto,q_auto" type="video/mp4">
+                                </video>
+                                <span class="type-badge">Reel</span>
+                                <div class="play-icon">▶</div>
+                            </div>
+                            <div class="info">
+                                <h4>
+                                    <%= reel.title %>
+                                </h4>
+                                <p>
+                                    <%= reel.description || 'No description available' %>
+                                </p>
+                                <div class="card-footer">
+                                    <span class="date">
+                                        <%= new Date(reel.createdAt || Date.now()).toLocaleDateString('en-US', {
+                                            year: 'numeric' , month: 'short' , day: 'numeric' }) %>
+                                    </span>
+                                    <a href="/admin/videos/delete/<%= reel._id %>" class="delete-btn"
+                                        onclick="return confirm('Delete this reel permanently?')">
+                                        Delete
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <% }) %>
+                            <% } else { %>
+                                <div class="no-items">
+                                    <i class="fas fa-film"></i>
+                                    <p>No reels uploaded yet. Add your first reel!</p>
+                                </div>
+                                <% } %>
+            </div>
+        </section>
+
+        <!-- Blogs Section -->
+        <section id="blogs" class="content-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-blog"></i>
+                    Blogs
+                </h2>
+                <a href="/admin/blogs/add" class="add-btn">
+                    <i class="fas fa-plus"></i>
+                    Add Blog
+                </a>
+            </div>
+
+            <div class="grid">
+                <% if (typeof blogs !=='undefined' && blogs && blogs.length> 0) { %>
+                    <% blogs.forEach(blog=> { %>
+                        <div class="item-card">
+                            <div class="thumbnail">
+                                <% if (blog.imageUrl) { %>
+                                    <img src="<%= blog.imageUrl %>?q=80&w=400" alt="<%= blog.title %>"
+                                        style="width: 100%; height: 100%; object-fit: cover;">
+                                    <% } else { %>
+                                        <div
+                                            style="background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; color: white; font-size: 48px;">
+                                            <i class="fas fa-edit"></i>
+                                        </div>
+                                        <% } %>
+                            </div>
+                            <div class="info">
+                                <h4>
+                                    <%= blog.title %>
+                                </h4>
+                                <p>
+                                    <%= blog.paragraph1 ? blog.paragraph1.substring(0, 100) + '...'
+                                        : 'No preview available' %>
+                                </p>
+                                <div class="card-footer">
+                                    <span class="date">
+                                        <%= new Date(blog.createdAt).toLocaleDateString('en-US', { year: 'numeric' ,
+                                            month: 'short' , day: 'numeric' }) %>
+                                    </span>
+                                    <div>
+                                        <a href="/admin/blogs/edit/<%= blog._id %>"
+                                            style="color: #4facfe; margin-right: 20px; text-decoration: none; font-weight: 600;">
+                                            Edit
+                                        </a>
+                                        <a href="/admin/blogs/delete/<%= blog._id %>" class="delete-btn"
+                                            onclick="return confirm('Delete this blog permanently?')">
+                                            Delete
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% }) %>
+                            <% } else { %>
+                                <div class="no-items">
+                                    <i class="fas fa-file-alt"
+                                        style="font-size: 60px; color: #ccc; margin-bottom: 20px;"></i>
+                                    <p>No blog posts yet.</p>
+                                    <p style="color: #888;">Create your first blog to get started!</p>
+                                </div>
+                                <% } %>
+            </div>
+        </section>
+        <!-- Contact Messages Section -->
+        <section id="contacts" class="content-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-envelope"></i>
+                    Contact Messages
+                </h2>
+                <span class="badge"
+                    style="background:#667eea; color:white; padding:8px 16px; border-radius:20px; font-size:14px;">
+                    <%= contacts.length %> messages
+                </span>
+            </div>
+
+            <div class="grid" style="grid-template-columns:1fr;">
+                <% if (contacts && contacts.length> 0) { %>
+                    <% contacts.forEach(contact=> { %>
+                        <div class="item-card" style="padding:25px; display:flex; flex-direction:column; gap:15px;">
+                            <div
+                                style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:15px;">
+                                <div>
+                                    <h4 style="margin:0; font-size:18px;">
+                                        <%= contact.name %>
+                                    </h4>
+                                    <small style="color:#64748b;">
+                                        <%= contact.email %>
+                                            <% if (contact.phone) { %> • <%= contact.phone %>
+                                                    <% } %>
+                                    </small>
+                                </div>
+                                <span
+                                    style="background:#fef2f2; color:#ef4444; padding:6px 14px; border-radius:20px; font-size:13px;">
+                                    <%= contact.subject %>
+                                </span>
+                            </div>
+
+                            <p style="margin:15px 0; line-height:1.6; color:#1a1a1a;">
+                                <%= contact.message %>
+                            </p>
+
+                            <div class="card-footer"
+                                style="display:flex; justify-content:space-between; align-items:center; margin-top:15px; padding-top:15px; border-top:1px solid #eef2f7;">
+                                <span class="date" style="color:#94a3b8; font-size:13px;">
+                                    <%= new Date(contact.createdAt).toLocaleString('en-US', { year: 'numeric' ,
+                                        month: 'short' , day: 'numeric' , hour: '2-digit' , minute: '2-digit' }) %>
+                                </span>
+                                <div>
+                                    <a href="mailto:<%= contact.email %>" class="add-btn"
+                                        style="background:#10b981; margin-right:10px; text-decoration:none;">
+                                        <i class="fas fa-reply"></i> Reply
+                                    </a>
+                                    <a href="/admin/contacts/delete/<%= contact._id %>" class="delete-btn"
+                                        onclick="return confirm('Delete this message permanently?')">
+                                        Delete
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <% }) %>
+                            <% } else { %>
+                                <div class="no-items">
+                                    <i class="fas fa-envelope"
+                                        style="font-size:60px; color:#ccc; margin-bottom:20px;"></i>
+                                    <p>No contact messages yet.</p>
+                                    <p style="color:#888;">When someone submits the contact form, messages will appear
+                                        here.</p>
+                                </div>
+                                <% } %>
+            </div>
+        </section>
+        <!-- Demo Requests Section -->
+        <section id="demo-requests" class="content-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-phone"></i> Free Demo Requests
+                </h2>
+                <span class="badge" style="background:#f59e0b; color:white; padding:8px 16px; border-radius:20px;">
+                    <%= demoRequests?.length || 0 %> requests
+                </span>
+            </div>
+
+            <div class="grid" style="grid-template-columns:1fr;">
+                <% if (demoRequests && demoRequests.length> 0) { %>
+                    <% demoRequests.forEach(req=> { %>
+                        <div class="item-card" style="padding:20px;">
+                            <h4 style="margin:0 0 8px;">Mobile: <%= req.mobile %>
+                            </h4>
+                            <small style="color:#64748b;">
+                                Requested on <%= new Date(req.createdAt).toLocaleString() %>
+                            </small>
+                            <div style="margin-top:12px;">
+                                <a href="tel:<%= req.mobile %>" style="color:#10b981; margin-right:15px;">Call Now</a>
+                                <a href="/admin/demo/delete/<%= req._id %>"
+                                    onclick="return confirm('Delete this request?')" style="color:#ef4444;">Delete</a>
+                            </div>
+                        </div>
+                        <% }) %>
+                            <% } else { %>
+                                <div class="no-items">
+                                    <i class="fas fa-phone" style="font-size:48px; color:#ccc;"></i>
+                                    <p>No demo requests yet.</p>
+                                </div>
+                                <% } %>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Set current date
+        const currentDate = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').textContent = currentDate.toLocaleDateString('en-US', options);
+
+        // Smooth scrolling for sidebar navigation
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function (e) {
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+
+                        document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                }
+            });
+        });
+
+        // Update active nav on scroll
+        window.addEventListener('scroll', () => {
+            const sections = ['reels', 'blogs'];
+            const scrollPos = window.scrollY + 150;
+
+            sections.forEach(section => {
+                const element = document.getElementById(section);
+                if (element) {
+                    const offsetTop = element.offsetTop;
+                    const offsetBottom = offsetTop + element.offsetHeight;
+
+                    if (scrollPos >= offsetTop && scrollPos < offsetBottom) {
+                        document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                        document.querySelector(`.nav-item[href="#${section}"]`).classList.add('active');
+                    }
+                }
+            });
+        });
+
+        // Auto play reels on hover
+        document.querySelectorAll('.thumbnail video').forEach(video => {
+            const parent = video.closest('.thumbnail');
+            parent.addEventListener('mouseenter', () => video.play());
+            parent.addEventListener('mouseleave', () => {
+                video.pause();
+                video.currentTime = 0;
+            });
+        });
+    </script>
+</body>
+
+</html>

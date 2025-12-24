@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Arolax HTML5 Template">
+
+    <title>Golden Apple Productions Services</title>
+
+    <!-- Fav Icon -->
+    <link rel="icon" type="image/x-icon" href="assets/imgs/logo/favicon.png">
+
+
+
+
+
+    <!-- All CSS files -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/progressbar.css">
+    <link rel="stylesheet" href="assets/css/meanmenu.min.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/master-service-details.css">
+
+
+</head>
+
+
+<body class="font-heading-beatricetrial-regular-2">
+<a
+  href="https://wa.me/917303199114"
+  target="_blank"
+  aria-label="Chat on WhatsApp"
+  style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 58px;
+    height: 58px;
+    background: #ffffff;
+    color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    z-index: 2147483647;
+    font-size: 28px;
+    text-decoration: none;
+  "
+>
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="container" class="container-preloader">
+            <div class="animation-preloader">
+                <div class="spinner"></div>
+
+            </div>
+            <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+        </div>
+    </div>
+
+
+
+    <!-- Switcher Area Start -->
+    <div class="switcher__area">
+        <div class="switcher__icon">
+            <button id="switcher_open"><i class="fa-solid fa-gear"></i></button>
+            <button id="switcher_close"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="switcher__items">
+            <div class="switcher__item">
+                <div class="switch__title-wrap">
+                    <p class="switcher__title">mode</p>
+                </div>
+                <div class="switcher__btn mode-type wc-col-2">
+                    <button class="active" data-mode="light">light</button>
+                    <button data-mode="dark">dark</button>
+                </div>
+            </div>
+            <div class="switcher__item">
+                <div class="switch__title-wrap">
+                    <p class="switcher__title">Language Support</p>
+                </div>
+                <div class="switcher__btn lang_dir wc-col-2">
+                    <button class="active" data-mode="ltr">LTR</button>
+                    <button data-mode="rtl">RTL</button>
+                </div>
+            </div>
+            <div class="switcher__item">
+                <div class="switch__title-wrap">
+                    <p class="switcher__title">Layout</p>
+                </div>
+                <div class="switcher__btn layout-type wc-col-2">
+                    <button class="active" data-mode="full-width">Full Width</button>
+                    <button data-mode="box-layout">Box Layout</button>
+                </div>
+            </div>
+            <div class="switcher__item">
+                <div class="switch__title-wrap">
+                    <p class="switcher__title">Cursor</p>
+                </div>
+                <div class="switcher__btn">
+                    <select name="cursor-style" id="cursor_style">
+                        <option value="1">default</option>
+                        <option selected value="2">animated</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Switcher Area End -->
+
+    <!-- offcanvas start  -->
+    <div class="offcanvas-3__area">
+        <div class="offcanvas-3__inner">
+            <div class="offcanvas-3__meta-wrapper">
+                <div class="">
+                    <button id="close_offcanvas" class="close-button close-offcanvas" onclick="hideCanvas3()">
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+                <div class="">
+                    <div class="offcanvas-3__meta mb-145 d-none d-md-block">
+                        <ul>
+                            <li><a href="tel:+2-352698102" class="unnerline"><u>+2-352 698 102</u></a></li>
+                            <li><a href="mailto:contact@me.com">contact@me.com</a></li>
+                            <li><a href="">27 Division St, <br>
+                                    New York, NY 10002, USA</a></li>
+                        </ul>
+                    </div>
+                    <div class="offcanvas-3__social d-none d-md-block">
+                        <p class="title">Follow Me</p>
+                        <div class="offcanvas-3__social-links">
+                            <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href=""><i class="fa-brands fa-twitter"></i></a>
+                            <a href=""><i class="fa-brands fa-dribbble"></i></a>
+                            <a href=""><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="offcanvas-3__menu-wrapper">
+                <nav class="nav-menu offcanvas-3__menu">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/ourwork">Our Work</a></li>
+                        <li><a href="/blogs">Blogs</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- offcanvas end  -->
+
+
+    <!-- search modal start -->
+    <div class="modal fade" id="search-template" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="search-template" aria-hidden="true">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form action="#" class="form-search">
+                        <input type="text" placeholder="Search">
+                        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- search modal end -->
+
+    <!-- Header area start -->
+    <header class="header-area">
+        <div class="container large">
+            <div class="header-area__inner">
+                <div class="header__logo">
+                    <a href="/">
+                        <img class="show-light" src="assets/imgs/logo/logo.png" alt="Site Logo">
+                        <img class="show-dark" src="assets/imgs/logo/logo-light.png" alt="Site Logo">
+                    </a>
+                </div>
+                <div class="header__nav pos-center">
+                    <nav class="main-menu">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/services">Services</a></li>
+                            <li><a href="/ourwork">Our Work</a></li>
+                            <li><a href="/blogs">Blogs</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="header__button">
+                   <a class="wc-btn wc-btn-primary btn-text-flip" href="javascript:void(0)" onclick="openDemoPopup()"><span data-text="Book Free Demo">Book Free Demo</span><i class="fa-solid fa-play"></i></a>
+                </div>
+                <div class="header__navicon d-xl-none">
+                    <button onclick="showCanvas3()" class="open-offcanvas">
+                        <i class="fa-solid fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header area end -->
+
+
+    <div class="has-smooth" id="has_smooth"></div>
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            <div class="body-wrapper body-corporate-agency">
+
+                <!-- overlay switcher close  -->
+                <div class="overlay-switcher-close"></div>
+
+                <main>
+
+                    <!-- service details area start  -->
+                    <section class="service-details-area">
+                        <div class="container">
+                            <div class="thumb-main">
+                                <img src="assets/imgs/gallery/img-s-88.webp" class="has_fade_anim" data-delay="0.30"
+                                    data-fade-offset="0" alt="image">
+
+                            </div>
+                            <div class="section-title-box">
+                                <div class="section-title-wrapper">
+                                    <div class="title-wrapper">
+                                        <h1 class="section-title has_fade_anim" data-on-scroll="0">Interaction <br>
+                                            design</h1>
+                                    </div>
+                                </div>
+                                <div class="feature-list has_fade_anim" data-on-scroll="0" data-delay="0.45">
+                                    <ul>
+                                        <li>API Development</li>
+                                        <li>WordPress</li>
+                                        <li>Cloud Migration</li>
+                                    </ul>
+                                    <ul>
+                                        <li>Front End Development</li>
+                                        <li>JavaScript</li>
+                                        <li>Fluter Framework</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="text-wrapper has_fade_anim">
+                                <p class="text">We’re looking for a Junior - Mid-level Designer to join our team. You’ll
+                                    support the
+                                    execution of graphic and digital design projects, working closely with the internal
+                                    team of creatives,
+                                    project managers, the Creative Director and development team to blend user needs and
+                                    business goals
+                                    into seamless, effective design experiences. You will need to demonstrate a
+                                    fundamental understanding
+                                    of design principles, an openness to learn and take direction, along with a strong
+                                    aesthetic design
+                                    intuition.
+                                </p>
+                                <p class="text">Internal team of creatives, project managers, the Creative Director and
+                                    development team
+                                    to blend user needs and business goals into seamless, effective design experiences.
+                                    You will need to
+                                    demonstrate a fundamental understanding of design principles</p>
+                            </div>
+                        </div>
+                        <div class="steps-wrapper-box has_fade_anim">
+                            <div class="container">
+                                <div class="working-steps-box">
+                                    <div class="working-steps">
+                                        <div class="working-step">
+                                            <h2 class="title">Planning and <br>
+                                                sketching</h2>
+                                            <p class="text">Modern and unique design practically point of view, it risks
+                                                not meeting the huge
+                                                expectations</p>
+                                        </div>
+                                        <div class="working-step">
+                                            <h2 class="title">Team <br>
+                                                working</h2>
+                                            <p class="text">Modern and unique design practically point of view, it risks
+                                                not meeting the huge
+                                                expectations</p>
+                                        </div>
+                                        <div class="working-step">
+                                            <h2 class="title">Flowchart and <br>
+                                                wireframe</h2>
+                                            <p class="text">Modern and unique design practically point of view, it risks
+                                                not meeting the huge
+                                                expectations</p>
+                                        </div>
+                                        <div class="working-step">
+                                            <h2 class="title">User experience <br>
+                                                Testing</h2>
+                                            <p class="text">Modern and unique design practically point of view, it risks
+                                                not meeting the huge
+                                                expectations</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="thumb-gallery has_fade_anim">
+                                <img src="assets/imgs/gallery/img-s-89.webp" alt="image">
+                                <img src="assets/imgs/gallery/img-s-90.webp" alt="image">
+                                <img src="assets/imgs/gallery/img-s-91.webp" alt="image">
+                            </div>
+                        </div>
+
+                    </section>
+                    <!-- service details area end  -->
+
+
+
+
+                
+
+
+
+
+                </main>
+
+
+                <!-- footer area start  -->
+                <footer class="footer-area">
+                    <div class="container">
+                        <div class="footer-area-inner  ">
+
+                            <div class="footer-cta">
+                                <div class="footer-widget-wrapper">
+                                    <h2 class="title">London</h2>
+                                    <ul class="footer-nav-list">
+                                        <li>Baltia Squar, Mark Street, <br>
+                                            London</li>
+                                    </ul>
+                                </div>
+                                <div class="footer-widget-wrapper">
+                                    <h2 class="title">New York</h2>
+                                    <ul class="footer-nav-list">
+                                        <li>Nenuya Centre, Elia Street <br>
+                                            New York, USA</li>
+                                    </ul>
+                                </div>
+                                <div class="footer-widget-wrapper newsletter">
+                                    <form action="/" method="get" class="subscribe-form">
+                                        <div class="input-field">
+                                            <input type="email" placeholder="Enter your email">
+                                            <button type="submit" class="subscribe-btn"><img
+                                                    src="assets/imgs/icon/arrow-light.webp" alt="icon"></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="copyright-area">
+                        <div class="container">
+                            <div class="copyright-area-inner">
+                                <div class="copyright-text">
+                                    <p class="text">© 2022 - 2025 | Alrights reserved <br>
+                                        Golden Apple Production
+                                </div>
+                                <ul class="footer-nav-list">
+                                    <li><a href="/">Home</a></li>
+                                    <li><a href="/about">About</a></li>
+                                    <li><a href="/services">Services</a></li>
+                                    <li><a href="/ourwork">Our Work</a></li>
+                                    <li><a href="/blogs">Blogs</a></li>
+                                    <li><a href="/contact">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <!-- footer area end  -->
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- All JS files -->
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/counter.js"></script>
+    <script src="assets/js/progressbar.js"></script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/ScrollSmoother.min.js"></script>
+    <script src="assets/js/ScrollToPlugin.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <script src="assets/js/SplitText.min.js"></script>
+    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <script src="assets/js/backToTop.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/error-handling.js"></script>
+    <script src="assets/js/offcanvas.js"></script>
+
+    <script>
+
+        // testimonial slider
+        if (('.testimonial-slider').length) {
+            var testimonial_slider = new Swiper(".testimonial-slider", {
+                loop: false,
+                slidesPerView: 1,
+                spaceBetween: 60,
+                speed: 1800,
+                watchSlidesProgress: true,
+                navigation: {
+                    prevEl: ".testimonial-button-prev",
+                    nextEl: ".testimonial-button-next",
+                },
+            });
+        }
+
+
+        // client slider 
+        if ('.client-slider-active') {
+            var client_slider_active = new Swiper(".client-slider-active", {
+                slidesPerView: 'auto',
+                loop: true,
+                autoplay: true,
+                spaceBetween: 130,
+                speed: 3000,
+                autoplay: {
+                    delay: 1,
+                },
+            });
+        }
+
+    </script>
+<!-- Book Free Demo Popup -->
+<div id="demoPopupOverlay" style="
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2147483646;
+">
+
+  <div style="
+    background: #ffffff;
+    width: 90%;
+    max-width: 420px;
+    padding: 30px;
+    border-radius: 14px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    z-index: 2147483647;
+    font-family: inherit;
+  ">
+
+    <!-- Close Icon -->
+    <span onclick="closeDemoPopup()" style="
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      font-size: 18px;
+      cursor: pointer;
+      color: #999;
+    ">✕</span>
+
+    <h3 style="
+      margin-bottom: 20px;
+      color: #000;
+      font-size: 22px;
+      font-weight: 600;
+    ">
+      Book Free Demo
+    </h3>
+
+    <input
+      type="tel"
+      id="demoMobile"
+      placeholder="Enter mobile number"
+      maxlength="10"
+      style="
+        width: 100%;
+        padding: 14px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        outline: none;
+        margin-bottom: 10px;
+      "
+    />
+
+    <p id="demoError" style="
+      color: red;
+      font-size: 14px;
+      display: none;
+      margin-bottom: 10px;
+    ">
+      Please enter a valid 10-digit mobile number
+    </p>
+
+    <p id="demoSuccess" style="
+      color: green;
+      font-size: 14px;
+      display: none;
+      margin-bottom: 10px;
+    ">
+    </p>
+
+    <button
+      id="demoSubmitBtn"
+      onclick="submitDemo()"
+      style="
+        width: 100%;
+        padding: 14px;
+        background: #000;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+      ">
+      Submit
+    </button>
+
+  </div>
+</div>
+
+<script>
+  function openDemoPopup() {
+    document.getElementById("demoPopupOverlay").style.display = "flex";
+  }
+
+  function closeDemoPopup() {
+    document.getElementById("demoPopupOverlay").style.display = "none";
+    document.getElementById("demoError").style.display = "none";
+    document.getElementById("demoSuccess").style.display = "none";
+    document.getElementById("demoMobile").value = "";
+  }
+
+  async function submitDemo() {
+    const mobile = document.getElementById("demoMobile").value.trim();
+    const error = document.getElementById("demoError");
+    const success = document.getElementById("demoSuccess");
+    const btn = document.getElementById("demoSubmitBtn");
+
+    error.style.display = "none";
+    success.style.display = "none";
+
+    // Frontend validation
+    if (!/^[6-9]\d{9}$/.test(mobile)) {
+      error.innerText = "Please enter a valid 10-digit mobile number";
+      error.style.display = "block";
+      return;
+    }
+
+    btn.innerText = "Submitting...";
+    btn.disabled = true;
+
+    try {
+      const res = await fetch("/book-demo", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ mobile })
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Something went wrong");
+      }
+
+      if (data.success) {
+        success.innerText = data.message;
+        success.style.display = "block";
+
+        setTimeout(() => {
+          closeDemoPopup();
+        }, 2000);
+      } else {
+        error.innerText = data.message || "Already registered";
+        error.style.display = "block";
+      }
+
+    } catch (err) {
+      error.innerText = err.message || "Server error. Try again.";
+      error.style.display = "block";
+    } finally {
+      btn.innerText = "Submit";
+      btn.disabled = false;
+    }
+  }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Golden Apple Productions HTML5 Template">
+
+  <title>Golden Apple Productions</title>
+
+  <!-- Fav Icon -->
+  <link rel="icon" type="image/x-icon" href="assets/imgs/logo/favicon.png">
+
+
+
+
+
+  <!-- All CSS files -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="assets/css/progressbar.css">
+  <link rel="stylesheet" href="assets/css/meanmenu.min.css">
+  <link rel="stylesheet" href="assets/css/magnific-popup.css">
+  <link rel="stylesheet" href="assets/css/master-video-production.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+
+</head>
+
+
+<body class="font-heading-khand-bold">
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div id="container" class="container-preloader">
+      <div class="animation-preloader">
+        <div class="spinner"></div>
+        <div class="txt-loading">
+
+        </div>
+      </div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div>
+  </div>
+<a
+  href="https://wa.me/917303199114"
+  target="_blank"
+  aria-label="Chat on WhatsApp"
+  style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 58px;
+    height: 58px;
+    background: #ffffff;
+    color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    z-index: 2147483647;
+    font-size: 28px;
+    text-decoration: none;
+  "
+>
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+
+
+  <!-- Switcher Area Start -->
+  <div class="switcher__area">
+    <div class="switcher__icon">
+      <button id="switcher_open"><i class="fa-solid fa-gear"></i></button>
+      <button id="switcher_close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="switcher__items">
+      <div class="switcher__item">
+        <div class="switch__title-wrap">
+          <p class="switcher__title">mode</p>
+        </div>
+        <div class="switcher__btn mode-type wc-col-2">
+          <button class="active" data-mode="light">light</button>
+          <button data-mode="dark">dark</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- Switcher Area End -->
+
+  <!-- offcanvas start  -->
+  <div class="offcanvas-3__area">
+    <div class="offcanvas-3__inner">
+      <div class="offcanvas-3__meta-wrapper">
+        <div class="">
+          <button id="close_offcanvas" class="close-button close-offcanvas" onclick="hideCanvas3()">
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+        <div class="">
+          <div class="offcanvas-3__meta mb-145 d-none d-md-block">
+            <ul>
+              <li><a href="tel:+2-352698102" class="unnerline"><u>+2-352 698 102</u></a></li>
+              <li><a href="mailto:contact@me.com">contact@me.com</a></li>
+              <li><a href="">27 Division St, <br>
+                  New York, NY 10002, USA</a></li>
+            </ul>
+          </div>
+          <div class="offcanvas-3__social d-none d-md-block">
+            <p class="title">Follow Me</p>
+            <div class="offcanvas-3__social-links">
+              <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+              <a href=""><i class="fa-brands fa-twitter"></i></a>
+              <a href=""><i class="fa-brands fa-dribbble"></i></a>
+              <a href=""><i class="fa-brands fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="offcanvas-3__menu-wrapper">
+        <nav class="nav-menu offcanvas-3__menu">
+          <ul>
+          <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/ourwork">Our Work</a></li>
+            <li><a href="/blogs">Blogs</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <!-- offcanvas end  -->
+
+
+  <!-- search modal start -->
+  <div class="modal fade" id="search-template" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="search-template" aria-hidden="true">
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <form action="#" class="form-search">
+            <input type="text" placeholder="Search">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- search modal end -->
+
+  <!-- Header area start -->
+  <header class="header-area">
+    <div class="container large">
+      <div class="header-area__inner">
+        <div class="header__logo">
+          <a href="/">
+            <img class="show-light" src="assets/imgs/logo/logo.png" alt="Site Logo">
+            <img class="show-dark" src="assets/imgs/logo/logo-light.png" alt="Site Logo">
+          </a>
+        </div>
+        <div class="header__nav pos-center">
+          <nav class="main-menu">
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/services">Services</a></li>
+              <li><a href="/ourwork">Our Work</a></li>
+              <li><a href="/blogs">Blogs</a></li>
+              <li><a href="/contact">Contact</a></li>
+             
+            </ul>
+          </nav>
+        </div>
+        <div class="header__button">
+          <a class="wc-btn wc-btn-primary btn-text-flip" href="javascript:void(0)" onclick="openDemoPopup()"><span data-text="Book Free Demo">Book Free Demo</span><i class="fa-solid fa-play"></i></a>
+        </div>
+        <div class="header__navicon d-xl-none">
+          <button onclick="showCanvas3()" class="open-offcanvas">
+            <i class="fa-solid fa-bars"></i></button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Header area end -->
+
+  <div class="has-smooth" id="has_smooth"></div>
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <div class="body-wrapper body-video-production">
+
+        <!-- overlay switcher close  -->
+        <div class="overlay-switcher-close"></div>
+
+        <main>
+
+         <!-- hero area start -->
+<section class="hero-area">
+  <!-- Video Background -->
+  <div class="hero-video-wrapper">
+    <iframe
+      src="https://www.youtube.com/embed/VQfgtUw4Vtc?autoplay=1&mute=1&loop=1&playlist=VQfgtUw4Vtc&controls=0&modestbranding=1&rel=0&iv_load_policy=3&fs=0&playsinline=1"
+      title="Golden Apple Productions Background Video"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen
+    ></iframe>
+  </div>
+
+  <!-- Dark Overlay -->
+  <div class="hero-overlay"></div>
+</section>
+<!-- hero area end -->
+<style>
+  /* ===== HERO VIDEO FULL FIX ===== */
+.hero-area {
+  position: relative;
+  width: 100%;
+  height: 100vh;            /* IMPORTANT: height, not min-height */
+  overflow: hidden;
+  background: #000;
+  margin: 0;
+  padding: 0;
+}
+
+/* Video container */
+.hero-video-wrapper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* YouTube iframe – object-fit cover simulation */
+.hero-video-wrapper iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120vw;
+  height: 120vh;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border: 0;
+}
+
+/* MOBILE FIX – force full coverage */
+@media (max-width: 768px) {
+  .hero-area {
+    height: 100svh; /* modern mobile viewport */
+  }
+
+  .hero-video-wrapper iframe {
+    width: 220vw;
+    height: 220vh;
+  }
+}
+
+/* Dark overlay */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+</style>
+
+          <!-- text slider area start  -->
+<div class="container large has_fade_anim">
+  <div class="text-slider">
+    <div class="swiper text-slider-active">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <div class="text-slider-item">
+            <h2 class="title"><a href="#">Fashion Editorial Shoots</a></h2>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="text-slider-item">
+            <h2 class="title"><a href="#">Brand Campaign Production</a></h2>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="text-slider-item">
+            <h2 class="title"><a href="#">Lookbook & Collection Shoots</a></h2>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="text-slider-item">
+            <h2 class="title"><a href="#">E-commerce & Catalog Shoots</a></h2>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="text-slider-item">
+            <h2 class="title"><a href="#">Creative Video Production</a></h2>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="text-slider-item">
+            <h2 class="title"><a href="#">Model Portfolio Shoots</a></h2>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="text-slider-item">
+            <h2 class="title"><a href="#">Behind-the-Scenes Content</a></h2>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="text-slider-item">
+            <h2 class="title"><a href="#">Post-Production & Editing</a></h2>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /text slider area end -->
+
+
+          <!-- gallery slider area start  -->
+          <div class="gallery-slider-area has_fade_anim">
+            <div class="container large">
+              <div class="gallery-slider">
+                <div class="swiper gallery-slider-active">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <div class="gallery-slider-item" style="overflow:hidden;">
+                        <img src="assets/imgs/bghome/b2.png" width="375" height="470" alt="gallery image"
+                          style="transition:transform 0.4s ease; transform-origin:center center; object-fit:cover;">
+                      </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                      <div class="gallery-slider-item" style="overflow:hidden;">
+                        <img src="assets/imgs/bghome/b1.png" width="910" height="600" alt="gallery image"
+                          style="transition:transform 0.4s ease; transform-origin:center center; object-fit:cover;">
+                      </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                      <div class="gallery-slider-item" style="overflow:hidden;">
+                        <img src="assets/imgs/bghome/b4.png" width="375" height="470" alt="gallery image"
+                          style="transition:transform 0.4s ease; transform-origin:center center; object-fit:cover;">
+                      </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                      <div class="gallery-slider-item" style="overflow:hidden;">
+                        <img src="assets/imgs/bghome/b3.png" width="910" height="600" alt="gallery image"
+                          style="transition:transform 0.4s ease; transform-origin:center center; object-fit:cover;">
+                      </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                      <div class="gallery-slider-item" style="overflow:hidden;">
+                        <img src="assets/imgs/bghome/b5.png" width="375" height="470" alt="gallery image"
+                          style="transition:transform 0.4s ease; transform-origin:center center; object-fit:cover;">
+                      </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                      <div class="gallery-slider-item" style="overflow:hidden;">
+                        <img src="assets/imgs/bghome/b6.png" width="910" height="600" alt="gallery image"
+                          style="transition:transform 0.4s ease; transform-origin:center center; object-fit:cover;">
+                      </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                      <div class="gallery-slider-item" style="overflow:hidden;">
+                        <img src="assets/imgs/bghome/b7.png" width="375" height="470" alt="gallery image"
+                          style="transition:transform 0.4s ease; transform-origin:center center; object-fit:cover;">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="gallery-pagination pagination-dot"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- gallery slider area end  -->
+          <style>
+            .gallery-slider-item:hover img {
+              transform: scale(1.06);
+            }
+          </style>
+
+
+          <!-- about area start  -->
+          <section class="about-area">
+            <div class="container">
+              <div class="about-area-inner section-spacing-top overflow-hidden">
+                <div class="section-title-image has_fade_anim" data-fade-from="bottom" data-fade-offset="50">
+                  <img class="show-light" src="assets/imgs/shape/img-s-38.webp" alt="shape image">
+                  <img class="show-dark" src="assets/imgs/shape/img-s-38-light.webp" alt="shape image">
+                </div>
+                <div class="section-content">
+                  <div class="section-thumb">
+                    <div class="about-thumb has_fade_anim" data-fade-from="top" data-ease="bounce"
+                      style="overflow:hidden;">
+                      <img class="show-light" src="assets/imgs/bghome/b8.png" alt="shape image"
+                        style="transition:transform 0.4s ease; transform-origin:center center;">
+                      <img class="show-dark" src="assets/imgs/bghome/b8.png" alt="shape image"
+                        style="transition:transform 0.4s ease; transform-origin:center center;">
+                    </div>
+                  </div>
+                  <style>
+                    .about-thumb:hover img {
+                      transform: scale(1.06);
+                    }
+                  </style>
+
+                <div class="content-last">
+  <div class="section-title-wrapper">
+    <div class="title-wrapper">
+      <h2 class="section-title has_text_move_anim">
+        We are a family of
+        creative fashion &
+        brand production
+        studio
+      </h2>
+    </div>
+  </div>
+
+  <div class="text-wrapper">
+    <p class="text has_fade_anim" data-fade-from="left">
+      We deliver high-end fashion and brand production powered by a curated creative team on demand. From concept
+      development to shoot execution and post-production, we build, produce, and scale visual stories with efficiency
+      and precision. Our true measure of success is long-term collaboration—many of our clients return to create
+      multiple campaigns with us.
+    </p>
+  </div>
+
+  <div class="btn-wrapper has_fade_anim" data-fade-from="left">
+    <a href="/about" class="wc-btn wc-btn-primary btn-text-flip mb-5">
+      <span data-text="Learn more">Learn more</span>
+      <i class="fa-solid fa-play"></i>
+    </a>
+  </div>
+</div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- about area end  -->
+
+<style>
+  .team-area-inner.section-spacing {
+    position: relative;
+    overflow: hidden;
+    background: transparent !important;
+  }
+
+  .team-area-inner.section-spacing::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("assets/imgs/bgeffect/1.gif") center center / cover no-repeat;
+    z-index: 0;
+  }
+
+  /* Optional dark overlay for readability */
+  .team-area-inner.section-spacing::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1;
+  }
+
+  /* Bring content above GIF */
+  .team-area-inner.section-spacing > * {
+    position: relative;
+    z-index: 2;
+  }
+</style>
+
+<!-- team area start  -->
+<section class="team-area">
+  <div class="container large">
+    <div class="team-area-inner section-spacing">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-title-wrapper">
+            <div class="title-wrapper">
+              <h2 class="section-title has_text_move_anim">
+                Our team brings together creative excellence, fashion expertise,
+                and a passion for delivering premium visual experiences.
+              </h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-content">
+          <div class="counter-wrapper-box">
+            <div class="counter-wrapper has_fade_anim">
+              <div class="team-count-box">
+                <h3 class="number wc-counter">15<span>+</span></h3>
+                <h3 class="title">Years of <br> experience</h3>
+              </div>
+              <div class="team-count-box">
+                <h3 class="number wc-counter">30<span>+</span></h3>
+                <h3 class="title">Happy <br> clients</h3>
+              </div>
+              <div class="team-count-box">
+                <h3 class="number wc-counter">120<span>+</span></h3>
+                <h3 class="title">Projects <br> completed</h3>
+              </div>
+              <div class="team-count-box">
+                <h3 class="number wc-counter">18</h3>
+                <h3 class="title">Creative <br> professionals</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-last has_fade_anim">
+            <h3 class="title">
+              <span>Creativity</span>
+              <span>Collaboration</span>
+              <span>Craft</span>
+            </h3>
+
+            <div class="text-wrapper">
+              <p class="text">
+                At Golden Apple Productions, we specialize in fashion and brand
+                production with a complete in-house workflow. From pre-production
+                planning and talent coordination to shoot execution and
+                post-production, we ensure every project is delivered with
+                precision, consistency, and a strong visual narrative. Our
+                success is defined by long-term partnerships and repeat
+                collaborations with designers and creative brands.
+              </p>
+            </div>
+
+            <div class="btn-wrapper">
+              <a href="/contact" class="wc-btn wc-btn-primary btn-text-flip">
+                <span data-text="Get started">Get started</span>
+                <i class="fa-solid fa-play"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- team area end  -->
+
+
+
+
+
+
+          <!-- clients area start  -->
+          <section class="clients-area">
+            <div class="container">
+              <div class="clinets-area-inner section-spacing-top">
+                <div class="section-header">
+                  <div class="section-title-wrapper">
+                    <div class="title-wrapper">
+                      <h2 class="section-title has_fade_anim" data-fade-from="bottom" data-fade-offset="50">We Worked
+                        with top agency
+                        world-wide</h2>
+                    </div>
+                  </div>
+                </div>
+                <div class="clients-wrapper-box has_fade_anim" data-fade-from="bottom" data-fade-offset="50">
+                  <div class="clients-wrapper">
+                    <div class="client-box">
+                      <img class="show-light" src="assets/imgs/brand/img-s-1.webp" alt="client image">
+                      <img class="show-dark" src="assets/imgs/brand/img-s-1-light.webp" alt="client image">
+                    </div>
+                    <div class="client-box">
+                      <img class="show-light" src="assets/imgs/brand/img-s-2.webp" alt="client image">
+                      <img class="show-dark" src="assets/imgs/brand/img-s-2-light.webp" alt="client image">
+                    </div>
+                    <div class="client-box">
+                      <img class="show-light" src="assets/imgs/brand/img-s-3.webp" alt="client image">
+                      <img class="show-dark" src="assets/imgs/brand/img-s-3-light.webp" alt="client image">
+                    </div>
+                    <div class="client-box">
+                      <img class="show-light" src="assets/imgs/brand/img-s-4.webp" alt="client image">
+                      <img class="show-dark" src="assets/imgs/brand/img-s-4-light.webp" alt="client image">
+                    </div>
+                    <div class="client-box">
+                      <img class="show-light" src="assets/imgs/brand/img-s-5.webp" alt="client image">
+                      <img class="show-dark" src="assets/imgs/brand/img-s-5-light.webp" alt="client image">
+                    </div>
+                    <div class="client-box">
+                      <img class="show-light" src="assets/imgs/brand/img-s-6.webp" alt="client image">
+                      <img class="show-dark" src="assets/imgs/brand/img-s-6-light.webp" alt="client image">
+                    </div>
+                    <div class="client-box">
+                      <img class="show-light" src="assets/imgs/brand/img-s-7.webp" alt="client image">
+                      <img class="show-dark" src="assets/imgs/brand/img-s-7-light.webp" alt="client image">
+                    </div>
+                    <div class="client-box">
+                      <img class="show-light" src="assets/imgs/brand/img-s-8.webp" alt="client image">
+                      <img class="show-dark" src="assets/imgs/brand/img-s-8-light.webp" alt="client image">
+                    </div>
+                    <div class="client-box">
+                      <img class="show-light" src="assets/imgs/brand/img-s-9.webp" alt="client image">
+                      <img class="show-dark" src="assets/imgs/brand/img-s-9-light.webp" alt="client image">
+                    </div>
+                    <div class="client-box">
+                      <img class="show-light" src="assets/imgs/brand/img-s-10.webp" alt="client image">
+                      <img class="show-dark" src="assets/imgs/brand/img-s-10-light.webp" alt="client image">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- clients area end  -->
+
+
+
+        </main>
+
+        <!-- footer area start  -->
+        <footer class="footer-area">
+          <div class="container">
+            <div class="copyright-area-inner">
+              <div class="copyright-text">
+                <p class="text">© 2024-25 - Golden Apple Production</p>
+              </div>
+              <ul class="footer-nav-list">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/ourwork">Our Work</a></li>
+                <li><a href="/blogs">Blogs</a></li>
+                <li><a href="/contact">Contact</a></li>
+              </ul>
+              <ul class="social-links">
+                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </footer>
+        <!-- footer area end  -->
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- All JS files -->
+  <script src="assets/js/jquery-3.6.0.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/jquery.magnific-popup.min.js"></script>
+  <script src="assets/js/swiper-bundle.min.js"></script>
+  <script src="assets/js/counter.js"></script>
+  <script src="assets/js/progressbar.js"></script>
+  <script src="assets/js/gsap.min.js"></script>
+  <script src="assets/js/ScrollSmoother.min.js"></script>
+  <script src="assets/js/ScrollToPlugin.min.js"></script>
+  <script src="assets/js/ScrollTrigger.min.js"></script>
+  <script src="assets/js/SplitText.min.js"></script>
+  <script src="assets/js/jquery.meanmenu.min.js"></script>
+  <script src="assets/js/backToTop.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/error-handling.js"></script>
+  <script src="assets/js/offcanvas.js"></script>
+
+  <script>
+
+    // text slider 
+    if ('.text-slider-active') {
+      var text_slider_active = new Swiper(".text-slider-active", {
+        slidesPerView: 'auto',
+        loop: true,
+        autoplay: true,
+        spaceBetween: 60,
+        speed: 10000,
+        autoplay: {
+          delay: 1,
+        },
+      });
+    }
+
+    // gallery slider
+    if (('.gallery-slider-active').length) {
+      var gallery_slider = new Swiper(".gallery-slider-active", {
+        loop: false,
+        slidesPerView: 'auto',
+        spaceBetween: 30,
+        speed: 1800,
+        watchSlidesProgress: true,
+        navigation: {
+          prevEl: ".gallery-button-prev",
+          nextEl: ".gallery-button-next",
+        },
+        pagination: {
+          el: '.gallery-pagination',
+          type: 'bullets',
+          clickable: true
+        },
+      });
+    }
+
+    // testimonial slider 
+    if (('.testimonial-slide-thumb').length) {
+      var test_content = new Swiper(".testimonial-slide-thumb", {
+        spaceBetween: 20,
+        slidesPerView: 1,
+        freeMode: true,
+        watchSlidesProgress: true,
+        breakpoints: {
+          576: {
+            slidesPerView: 2,
+          },
+          768: {
+            slidesPerView: 3,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+        },
+      });
+      var test_thumb = new Swiper(".testimonial-slide-content", {
+        spaceBetween: 30,
+        thumbs: {
+          swiper: test_content,
+        },
+      });
+    }
+
+
+
+  </script>
+<!-- Book Free Demo Popup -->
+<div id="demoPopupOverlay" style="
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2147483646;
+">
+
+  <div style="
+    background: #ffffff;
+    width: 90%;
+    max-width: 420px;
+    padding: 30px;
+    border-radius: 14px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    z-index: 2147483647;
+    font-family: inherit;
+  ">
+
+    <!-- Close Icon -->
+    <span onclick="closeDemoPopup()" style="
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      font-size: 18px;
+      cursor: pointer;
+      color: #999;
+    ">✕</span>
+
+    <h3 style="
+      margin-bottom: 20px;
+      color: #000;
+      font-size: 22px;
+      font-weight: 600;
+    ">
+      Book Free Demo
+    </h3>
+
+    <input
+      type="tel"
+      id="demoMobile"
+      placeholder="Enter mobile number"
+      maxlength="10"
+      style="
+        width: 100%;
+        padding: 14px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        outline: none;
+        margin-bottom: 10px;
+      "
+    />
+
+    <p id="demoError" style="
+      color: red;
+      font-size: 14px;
+      display: none;
+      margin-bottom: 10px;
+    ">
+      Please enter a valid 10-digit mobile number
+    </p>
+
+    <p id="demoSuccess" style="
+      color: green;
+      font-size: 14px;
+      display: none;
+      margin-bottom: 10px;
+    ">
+    </p>
+
+    <button
+      id="demoSubmitBtn"
+      onclick="submitDemo()"
+      style="
+        width: 100%;
+        padding: 14px;
+        background: #000;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+      ">
+      Submit
+    </button>
+
+  </div>
+</div>
+
+<script>
+  function openDemoPopup() {
+    document.getElementById("demoPopupOverlay").style.display = "flex";
+  }
+
+  function closeDemoPopup() {
+    document.getElementById("demoPopupOverlay").style.display = "none";
+    document.getElementById("demoError").style.display = "none";
+    document.getElementById("demoSuccess").style.display = "none";
+    document.getElementById("demoMobile").value = "";
+  }
+
+  async function submitDemo() {
+    const mobile = document.getElementById("demoMobile").value.trim();
+    const error = document.getElementById("demoError");
+    const success = document.getElementById("demoSuccess");
+    const btn = document.getElementById("demoSubmitBtn");
+
+    error.style.display = "none";
+    success.style.display = "none";
+
+    // Frontend validation
+    if (!/^[6-9]\d{9}$/.test(mobile)) {
+      error.innerText = "Please enter a valid 10-digit mobile number";
+      error.style.display = "block";
+      return;
+    }
+
+    btn.innerText = "Submitting...";
+    btn.disabled = true;
+
+    try {
+      const res = await fetch("/book-demo", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ mobile })
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Something went wrong");
+      }
+
+      if (data.success) {
+        success.innerText = data.message;
+        success.style.display = "block";
+
+        setTimeout(() => {
+          closeDemoPopup();
+        }, 2000);
+      } else {
+        error.innerText = data.message || "Already registered";
+        error.style.display = "block";
+      }
+
+    } catch (err) {
+      error.innerText = err.message || "Server error. Try again.";
+      error.style.display = "block";
+    } finally {
+      btn.innerText = "Submit";
+      btn.disabled = false;
+    }
+  }
+</script>
+</body>
+
+</html>
