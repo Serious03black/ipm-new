@@ -30,14 +30,18 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-// Multer for Videos (temporary local storage)
-const videoUpload = multer({
-    dest: "temp_uploads/",
-    limits: { fileSize: 100 * 1024 * 1024 }, // 100MB max
-    fileFilter: (req, file, cb) => {
-        if (file.mimetype.startsWith('video/')) cb(null, true);
-        else cb(new Error('Only video files are allowed!'), false);
+// Multer for Videos (direct to Cloudinary)
+const videoStorage = new CloudinaryStorage({
+    cloudinary: cloudinary,
+    params: {
+        folder: "portfolio-videos",
+        resource_type: "video"
     }
+});
+
+const videoUpload = multer({
+    storage: videoStorage,
+    limits: { fileSize: 100 * 1024 * 1024 }
 });
 
 // Multer for Blog Images (direct to Cloudinary)
@@ -229,36 +233,37 @@ app.get("/admin/videos/add/:type", requireAdmin, (req, res) => {
     res.render("admin/videos/add", { type, error: null });
 });
 
-app.post("/admin/videos/add/:type", requireAdmin, videoUpload.single("video"), async (req, res) => {
+app.post(
+  "/admin/videos/add/:type",
+  requireAdmin,
+  videoUpload.single("video"),
+  async (req, res) => {
     try {
-        if (!req.file) throw new Error("No video file selected.");
+      if (!req.file) throw new Error("No video file selected.");
 
-        const { title, description } = req.body;
-        const type = req.params.type;
+      const { title, description } = req.body;
+      const type = req.params.type;
 
-        const result = await cloudinary.uploader.upload(req.file.path, {
-            folder: `portfolio-${type}s`,
-            resource_type: "video"
-        });
+      const newItem = new Video({
+        title: title?.trim() || "Untitled",
+        description: description?.trim() || "",
+        videoUrl: req.file.path,       // ✅ Cloudinary URL
+        publicId: req.file.filename,   // ✅ Cloudinary public_id
+        type
+      });
 
-        const newItem = new Video({
-            title: title?.trim() || "Untitled",
-            description: description?.trim() || "",
-            videoUrl: result.secure_url,
-            publicId: result.public_id,
-            type
-        });
+      await newItem.save();
 
-        await newItem.save();
-
-        fs.unlinkSync(req.file.path); // Clean up temp file
-
-        res.redirect("/admin/dashboard");
+      res.redirect("/admin/dashboard");
     } catch (err) {
-        console.error("Video upload error:", err);
-        res.render("admin/videos/add", { error: err.message, type: req.params.type });
+      console.error("Video upload error:", err);
+      res.render("admin/videos/add", {
+        error: err.message,
+        type: req.params.type
+      });
     }
-});
+  }
+);
 
 app.get("/admin/videos/delete/:id", requireAdmin, async (req, res) => {
     try {
