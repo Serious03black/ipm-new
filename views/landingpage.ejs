@@ -31,7 +31,7 @@
 </head>
 
 
-<body class="font-heading-beatricetrial-regular-2 dark">
+<body class="font-heading-beatricetrial-regular-2">
 
   <!-- Preloader -->
   <div id="preloader">
@@ -168,8 +168,8 @@
       <div class="header-area__inner">
         <div class="header__logo">
           <a href="#">
-            <img class="show-light" src="assets/imgs/logo/logo.png" alt="Site Logo">
-            <img class="show-dark" src="assets/imgs/logo/logo-light.png" alt="Site Logo">
+            <img class="show-light" src="assets/imgs/logo/logo.png" alt="Site Logo" height="60px" width="60px">
+            <img class="show-dark" src="assets/imgs/logo/logo.png" alt="Site Logo" height="60px" width="60px">
           </a>
         </div>
         <div class="header__nav pos-center">
@@ -204,7 +204,161 @@
         <div class="overlay-switcher-close"></div>
 
         <main>
+ <!-- contact area start  -->
+          <section class="contact-area mt-5">
+            <div class="container">
+              <div class="contact-area-inner section-spacing">
+                <div class="section-header">
+                  <div class="section-title-wrapper">
+                    <div class="title-wrapper">
+                      <h2 class="section-title large has_fade_anim">We’ve been
+                        waiting for you!</h2>
+                    </div>
+                  </div>
+                  <div class="text-wrapper">
+                    <p class="text has_fade_anim">Collaborate with top-tier creative talent, agile production management, and seamless end-to-end involvement—crafted for fashion and brand excellence.</p>
+                  </div>
+                </div>
+                <div class="section-content">
+                  <div class="info-box has_fade_anim">
+                    <div class="text-wrapper">
+                      <p class="text">We’d love to hear from you.
+Tell us how we can help bring your next visual campaign to life.</p>
+                    </div>
+                    <ul class="contact-list">
+                      <li><a href="tel:+881750660600">+91 73031 99114</a></li>
+                      <li><a href="#">hello@goldenappleproductions.in</a></li>
+                      <li>230 alaska street dunasia <br>
+                        QC (USA) H8R 1A1</li>
+                    </ul>
+                  </div>
+                  <div class="contact-wrap has_fade_anim" data-delay="0.30">
+                   <form id="contactForm" action="/contact" method="POST">
 
+    <div class="contact-formwrap">
+
+      <div class="contact-formfield">
+        <input type="text" name="name" id="Name" placeholder="Name*" required>
+      </div>
+
+      <div class="contact-formfield">
+        <input type="email" name="email" id="Email" placeholder="Email*" required>
+      </div>
+
+      <div class="contact-formfield">
+        <input type="tel" name="phone" id="Phone" placeholder="Phone (10 digits)*" maxlength="10" required>
+      </div>
+
+      <div class="contact-formfield">
+        <select name="subject" id="Subject" required>
+          <option value="">Select Service *</option>
+          <option value="Fashion Shoot">Fashion Shoot</option>
+          <option value="Brand Campaign">Brand Campaign</option>
+          <option value="Product Photography">Product Photography</option>
+          <option value="Video Production">Video Production</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="contact-formfield">
+        <input type="url" name="website" id="Website" placeholder="Website / Instagram Link">
+      </div>
+
+      <div class="contact-formfield messages">
+        <textarea name="message" id="Message" placeholder="Your Message*" required></textarea>
+      </div>
+
+    </div>
+
+    <div class="submit-btn">
+      <button type="submit" class="wc-btn wc-btn-primary btn-text-flip">
+        <span data-text="Send Message">Send Message</span>
+      </button>
+    </div>
+
+  </form>
+</div>
+<style>
+  /* Dropdown (Select) Styling */
+select {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 15px;
+  color: #606860;
+  background-color: transparent;
+  border: none !important;
+  outline: none !important;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+}
+
+/* Optional: placeholder color */
+select option[value=""] {
+  color: #999;
+}
+
+/* Remove focus border completely */
+select:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* For mobile dropdown arrow spacing */
+select::-ms-expand {
+  display: none;
+}
+/* Common input + textarea styling */
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 15px;
+  color: #606860;
+  background: transparent;
+  border: none !important;
+  outline: none !important;
+  resize: none;
+  font-family: inherit;
+}
+
+/* Placeholder color */
+input::placeholder,
+textarea::placeholder {
+  color: #606860;
+  opacity: 0.7;
+}
+
+/* Focus state */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove textarea resize handle */
+textarea {
+  resize: none;
+  min-height: 120px;
+}
+
+/* Optional: subtle underline effect */
+.contact-formfield {
+  border-bottom: 1px solid rgba(96, 104, 96, 0.4);
+  padding-bottom: 6px;
+  margin-bottom: 20px;
+}
+
+</style>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- contact area end  -->
           <!-- work details area start  -->
           <section class="work-details-area " >
             <div class="hero-area">
@@ -321,68 +475,6 @@
         </main>
 
 
-        <main>
-
-          <!-- contact area start  -->
-          <section class="contact-area">
-            <div class="container">
-              <div class="contact-area-inner section-spacing">
-                <div class="section-header">
-                  <div class="section-title-wrapper">
-                    <div class="title-wrapper">
-                      <h2 class="section-title large has_fade_anim">We’ve been
-                        waiting for you!</h2>
-                    </div>
-                  </div>
-                  <div class="text-wrapper">
-                    <p class="text has_fade_anim">Collaborate with top-tier creative talent, agile production management, and seamless end-to-end involvement—crafted for fashion and brand excellence.</p>
-                  </div>
-                </div>
-                <div class="section-content">
-                  <div class="info-box has_fade_anim">
-                    <div class="text-wrapper">
-                      <p class="text">We’d love to hear from you.
-Tell us how we can help bring your next visual campaign to life.</p>
-                    </div>
-                    <ul class="contact-list">
-                      <li><a href="tel:+881750660600">+91 73031 99114</a></li>
-                      <li><a href="#">hello@goldenappleproductions.in</a></li>
-                      <li>230 alaska street dunasia <br>
-                        QC (USA) H8R 1A1</li>
-                    </ul>
-                  </div>
-                  <div class="contact-wrap has_fade_anim" data-delay="0.30">
-                    <form action="#">
-                      <div class="contact-formwrap">
-                        <div class="contact-formfield">
-                          <input type="text" name="Name" id="Name" placeholder="Name*">
-                        </div>
-                        <div class="contact-formfield">
-                          <input type="text" name="Email" id="Email" placeholder="Email*">
-                        </div>
-                        <div class="contact-formfield">
-                          <input type="text" name="Phone" id="Phone" placeholder="Phone">
-                        </div>
-                        <div class="contact-formfield">
-                          <input type="text" name="Subject" id="Subject" placeholder="Subject*">
-                        </div>
-                        <div class="contact-formfield messages">
-                          <input type="text" name="Messages" id="Messages" placeholder="Messages*">
-                        </div>
-                      </div>
-                      <div class="submit-btn">
-                        <button type="submit" class="wc-btn wc-btn-primary btn-text-flip"><span
-                            data-text="Send Message">Send Message</span></button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <!-- contact area end  -->
-
-        </main>
 
         <!-- footer area start  -->
         <footer class="footer-area">
@@ -572,7 +664,45 @@ Tell us how we can help bring your next visual campaign to life.</p>
     closeDemoPopup();
   }
 </script>
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
 
+  const name = document.getElementById("Name").value.trim();
+  const email = document.getElementById("Email").value.trim();
+  const phone = document.getElementById("Phone").value.trim();
+  const subject = document.getElementById("Subject").value;
+  const website = document.getElementById("Website").value.trim();
+  const message = document.getElementById("Message").value.trim();
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const phoneRegex = /^[6-9]\d{9}$/;
+  const urlRegex = /^(https?:\/\/)?([\w\-]+\.)+[a-z]{2,}(\/.*)?$/i;
+
+  if (!name || !email || !phone || !subject || !message) {
+    alert("Please fill all required fields.");
+    return;
+  }
+
+  if (!emailRegex.test(email)) {
+    alert("Please enter a valid email address.");
+    return;
+  }
+
+  if (!phoneRegex.test(phone)) {
+    alert("Phone number must be 10 digits.");
+    return;
+  }
+
+  if (website && !urlRegex.test(website)) {
+    alert("Please enter a valid website or Instagram URL.");
+    return;
+  }
+
+  // Submit form if all good
+  this.submit();
+});
+</script>
 
 </body>
 

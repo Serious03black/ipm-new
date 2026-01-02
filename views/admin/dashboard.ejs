@@ -589,74 +589,96 @@
             </div>
         </section>
         <!-- Contact Messages Section -->
-        <section id="contacts" class="content-section">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <i class="fas fa-envelope"></i>
-                    Contact Messages
-                </h2>
-                <span class="badge"
-                    style="background:#667eea; color:white; padding:8px 16px; border-radius:20px; font-size:14px;">
-                    <%= contacts.length %> messages
-                </span>
-            </div>
+      <!-- Contact Messages Section -->
+<section id="contacts" class="content-section">
+    <div class="section-header">
+        <h2 class="section-title">
+            <i class="fas fa-envelope"></i>
+            Contact Messages
+        </h2>
+        <span class="badge" style="background:#667eea; color:white; padding:8px 16px; border-radius:20px; font-size:14px;">
+            <%= typeof contacts !== 'undefined' && contacts ? contacts.length : 0 %> messages
+        </span>
+    </div>
 
-            <div class="grid" style="grid-template-columns:1fr;">
-                <% if (contacts && contacts.length> 0) { %>
-                    <% contacts.forEach(contact=> { %>
-                        <div class="item-card" style="padding:25px; display:flex; flex-direction:column; gap:15px;">
-                            <div
-                                style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:15px;">
-                                <div>
-                                    <h4 style="margin:0; font-size:18px;">
-                                        <%= contact.name %>
-                                    </h4>
-                                    <small style="color:#64748b;">
-                                        <%= contact.email %>
-                                            <% if (contact.phone) { %> • <%= contact.phone %>
-                                                    <% } %>
-                                    </small>
-                                </div>
-                                <span
-                                    style="background:#fef2f2; color:#ef4444; padding:6px 14px; border-radius:20px; font-size:13px;">
-                                    <%= contact.subject %>
-                                </span>
-                            </div>
+    <div class="grid" style="grid-template-columns:1fr;">
+        <% if (contacts && contacts.length > 0) { %>
+            <% contacts.forEach(function(contact) { %>  <!-- Use function(contact) to avoid scope issues -->
+                <div class="item-card" style="padding:25px; display:flex; flex-direction:column; gap:15px;">
 
-                            <p style="margin:15px 0; line-height:1.6; color:#1a1a1a;">
-                                <%= contact.message %>
-                            </p>
-
-                            <div class="card-footer"
-                                style="display:flex; justify-content:space-between; align-items:center; margin-top:15px; padding-top:15px; border-top:1px solid #eef2f7;">
-                                <span class="date" style="color:#94a3b8; font-size:13px;">
-                                    <%= new Date(contact.createdAt).toLocaleString('en-US', { year: 'numeric' ,
-                                        month: 'short' , day: 'numeric' , hour: '2-digit' , minute: '2-digit' }) %>
-                                </span>
-                                <div>
-                                    <a href="mailto:<%= contact.email %>" class="add-btn"
-                                        style="background:#10b981; margin-right:10px; text-decoration:none;">
-                                        <i class="fas fa-reply"></i> Reply
-                                    </a>
-                                    <a href="/admin/contacts/delete/<%= contact._id %>" class="delete-btn"
-                                        onclick="return confirm('Delete this message permanently?')">
-                                        Delete
-                                    </a>
-                                </div>
-                            </div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:15px;">
+                        <div>
+                            <h4 style="margin:0; font-size:18px;">
+                                <%= contact.name %>
+                            </h4>
+                            <small style="color:#64748b;">
+                                <%= contact.email %>
+                                <% if (contact.phone) { %> • <%= contact.phone %> <% } %>
+                            </small>
                         </div>
-                        <% }) %>
-                            <% } else { %>
-                                <div class="no-items">
-                                    <i class="fas fa-envelope"
-                                        style="font-size:60px; color:#ccc; margin-bottom:20px;"></i>
-                                    <p>No contact messages yet.</p>
-                                    <p style="color:#888;">When someone submits the contact form, messages will appear
-                                        here.</p>
-                                </div>
-                                <% } %>
+
+                        <span style="background:#eef2ff; color:#4f46e5; padding:6px 14px; border-radius:20px; font-size:13px; font-weight:600;">
+                            <%= contact.subject %>
+                        </span>
+                    </div>
+
+                    <!-- Budget & Membership -->
+                   <!-- Budget & Membership -->
+<% if (contact.budget || contact.membership) { %>
+    <div style="display:flex; gap:20px; flex-wrap:wrap; font-size:14px; color:#475569;">
+        <% if (contact.budget && contact.budget.trim() !== '') { %>
+            <span><strong>Budget:</strong> <%= contact.budget %></span>
+        <% } %>
+        <% if (contact.membership && contact.membership.trim() !== '') { %>
+            <span><strong>Membership:</strong> <%= contact.membership %></span>
+        <% } %>
+    </div>
+<% } %>
+
+                    <!-- Website / Link -->
+                    <% if (contact.website) { %>
+                        <p style="margin-top:10px; font-size:14px;">
+                            🔗 <a href="<%= contact.website.startsWith('http') ? contact.website : 'https://' + contact.website %>"
+                                  target="_blank" style="color:#2563eb;">
+                                <%= contact.website %>
+                            </a>
+                        </p>
+                    <% } %>
+
+                    <!-- Message -->
+                    <p style="margin-top:12px; line-height:1.6; color:#1a1a1a;">
+                        <%= contact.message %>
+                    </p>
+
+                    <div class="card-footer" style="display:flex; justify-content:space-between; align-items:center; margin-top:15px; padding-top:15px; border-top:1px solid #eef2f7;">
+                        <span style="color:#94a3b8; font-size:13px;">
+                            <%= new Date(contact.createdAt).toLocaleString() %>
+                        </span>
+
+                        <div>
+                            <a href="mailto:<%= contact.email %>?subject=Re: <%= encodeURIComponent(contact.subject) %>"
+                               class="add-btn" style="background:#10b981; text-decoration:none; padding:8px 16px; border-radius:6px; color:white; margin-right:10px;">
+                                Reply
+                            </a>
+                            <a href="/admin/contacts/delete/<%= contact._id %>"
+                               onclick="return confirm('Delete this message?')"
+                               class="delete-btn" style="text-decoration:none;">
+                                Delete
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>  <!-- Closing forEach properly -->
+
+        <% } else { %>
+            <div class="no-items" style="text-align:center; padding:60px 20px; color:#888;">
+                <i class="fas fa-envelope" style="font-size:60px; color:#ccc; margin-bottom:20px;"></i>
+                <p>No contact messages yet.</p>
+                <p>When someone submits the contact form, messages will appear here.</p>
             </div>
-        </section>
+        <% } %>
+    </div>
+</section>
         <!-- Demo Requests Section -->
         <section id="demo-requests" class="content-section">
             <div class="section-header">

@@ -143,33 +143,146 @@ app.get("/blog/:id", async (req, res) => {
 
 // ==================== CONTACT FORM ROUTE ====================
 app.post("/contact", async (req, res) => {
-  console.log(req.body);
-
   try {
-    const { name, email, phone, subject, messages } = req.body;
-
-    if (!name || !email || !subject || !messages) {
-      return res.status(400).send("Required fields missing");
-    }
-
-    const newContact = new Contact({
+    // Destructure all fields from req.body
+    let {
       name,
       email,
-      phone: phone || "",
+      phone,
       subject,
-      message: messages   // 👈 map correctly
+      website,
+      message,
+      budget,       // new correct name (in case you fixed the form)
+      membership
+    } = req.body;
+
+    // Clean and trim inputs
+    name = name?.trim();
+    email = email?.trim().toLowerCase();
+    phone = phone?.trim();
+    subject = subject?.trim();
+    website = website?.trim() || null;
+    message = message?.trim();
+    membership = membership?.trim() || null;
+
+    // Fix budget: accept both spellings (supports old and new form submissions)
+    const finalBudget = (budget)?.trim() || null;
+
+    // Basic required field validation
+    if (!name || !email || !phone || !subject || !message) {
+      console.log("Missing required fields");
+      return res.redirect("/#contact");
+    }
+
+    // Email & Phone validation (Indian mobile format: starts with 6-9, 10 digits)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^[6-9]\d{9}$/;
+
+    if (!emailRegex.test(email)) {
+      console.log("Invalid email:", email);
+      return res.redirect("/#contact");
+    }
+
+    if (!phoneRegex.test(phone)) {
+      console.log("Invalid phone:", phone);
+      return res.redirect("/#contact");
+    }
+
+    // Save to MongoDB with ALL fields including budget & membership
+    await Contact.create({
+      name,
+      email,
+      phone,
+      subject,
+      website,
+      message,
+      budget: finalBudget,       // Now saved correctly!
+      membership                 // Now saved correctly!
     });
 
-    await newContact.save();
+    console.log("New contact saved successfully:", { name, email, budget: finalBudget, membership });
 
-    res.redirect("/");
-  } catch (error) {
-    console.error("Contact form error:", error);
-    res.status(500).send("Error saving message");
+    // Success Thank You Page
+    return res.send(`
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You - Message Received</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .box {
+      width: 90%;
+      max-width: 440px;
+      background: #ffffff;
+      padding: 40px 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    }
+    h1 {
+      font-size: 32px;
+      color: #16a34a;
+      margin-bottom: 16px;
+    }
+    p {
+      font-size: 17px;
+      color: #374151;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+    a {
+      display: inline-block;
+      padding: 14px 32px;
+      background: #000000;
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+    a:hover {
+      background: #1f2937;
+      transform: translateY(-2px);
+    }
+    .icon {
+      font-size: 60px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 480px) {
+      h1 { font-size: 26px; }
+      .box { padding: 30px 20px; }
+      a { width: 100%; padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="icon">✅</div>
+    <h1>Thank You!</h1>
+    <p>Your message has been received successfully.<br>We will get back to you very soon.</p>
+    <a href="/">← Back to Home</a>
+  </div>
+</body>
+</html>
+    `);
+
+  } catch (err) {
+    console.error("CONTACT FORM ERROR:", err);
+    return res.redirect("/#contact"); // safer than root if form is in section
   }
 });
-
-
 
 // ==================== ADMIN ROUTES ====================
 app.get("/adminlogin", (req, res) => {

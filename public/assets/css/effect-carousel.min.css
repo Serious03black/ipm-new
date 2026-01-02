@@ -1,1 +1,34 @@
-.swiper-carousel{position:relative;margin:0 auto;max-width:100%;overflow:hidden}.swiper-carousel .swiper-slide,.swiper-carousel swiper-slide{position:relative}
+.swiper-carousel {
+    position: relative;
+    margin: 0 auto;
+    max-width: 100%;
+    overflow: hidden
+}
+
+.swiper-carousel .swiper-slide,
+.swiper-carousel swiper-slide {
+    position: relative
+}
+
+/* ===============================
+   FIX: Prevent carousel CSS
+   from affecting buttons
+================================ */
+
+.portfolio-scope button,
+.portfolio-scope a {
+  all: unset;
+}
+
+/* Restore button styles inside carousel only */
+.portfolio-scope .portfolio-button-next,
+.portfolio-scope .portfolio-button-prev {
+  all: unset;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+}
+
+/* Restore original buttons globally */
+

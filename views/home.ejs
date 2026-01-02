@@ -24,6 +24,15 @@
   <link rel="stylesheet" href="assets/css/meanmenu.min.css">
   <link rel="stylesheet" href="assets/css/magnific-popup.css">
   <link rel="stylesheet" href="assets/css/master-video-production.css">
+  <link rel="stylesheet" href="assets/css/master-portfolio-carousel.css">
+  <link rel="stylesheet" href="assets/css/effect-carousel.min.css">
+ 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+
+
+ 
+
+  <link rel="stylesheet" href="assets/css/master-portfolio-carousel.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,9 +42,27 @@
 
 
 </head>
+ <style>
+            .portfolio-active {
+  width: 100%;
+  overflow: visible;
+}
 
+.swiper-slide {
+  width: 420px;
+  transition: transform 0.5s ease;
+}
 
-<body class="font-heading-khand-bold">
+.swiper-carousel-animate-opacity img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+           </style>
+
+<body class="font-heading-khand-bold dark">
 
   <!-- Preloader -->
   <div id="preloader">
@@ -89,7 +116,7 @@
           <p class="switcher__title">mode</p>
         </div>
         <div class="switcher__btn mode-type wc-col-2">
-          <button class="active" data-mode="light">light</button>
+          <button class="active" data-mode="light" >light</button>
           <button data-mode="dark">dark</button>
         </div>
       </div>
@@ -98,7 +125,7 @@
   </div>
   <!-- Switcher Area End -->
 
-  <!-- offcanvas start  -->
+  <!-- offcanvas start 
   <div class="offcanvas-3__area">
     <div class="offcanvas-3__inner">
       <div class="offcanvas-3__meta-wrapper">
@@ -130,7 +157,7 @@
       </div>
       <div class="offcanvas-3__menu-wrapper">
         <nav class="nav-menu offcanvas-3__menu">
-          <ul>
+          <ul >
           <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/services">Services</a></li>
@@ -141,10 +168,8 @@
         </nav>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- offcanvas end  -->
-
-
   <!-- search modal start -->
   <div class="modal fade" id="search-template" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="search-template" aria-hidden="true">
@@ -161,15 +186,14 @@
     </div>
   </div>
   <!-- search modal end -->
-
   <!-- Header area start -->
   <header class="header-area">
     <div class="container large">
       <div class="header-area__inner">
         <div class="header__logo">
           <a href="/">
-            <img class="show-light" src="assets/imgs/logo/logo.png" alt="Site Logo">
-            <img class="show-dark" src="assets/imgs/logo/logo-light.png" alt="Site Logo">
+            <img class="show-light" src="assets/imgs/logo/logo.png" alt="Site Logo" height="60px" width="60px">
+            <img class="show-dark" src="assets/imgs/logo/logo.png" alt="Site Logo" height="60px" width="60px">
           </a>
         </div>
         <div class="header__nav pos-center">
@@ -181,7 +205,7 @@
               <li><a href="/ourwork">Our Work</a></li>
               <li><a href="/blogs">Blogs</a></li>
               <li><a href="/contact">Contact</a></li>
-             
+              <li><a href="/adminlogin">Admin</a></li>
             </ul>
           </nav>
         </div>
@@ -229,7 +253,7 @@
 .hero-area {
   position: relative;
   width: 100%;
-  height: 100vh;            /* IMPORTANT: height, not min-height */
+  height: 100vh;         
   overflow: hidden;
   background: #000;
   margin: 0;
@@ -338,73 +362,88 @@
 </div>
 <!-- /text slider area end -->
 
-
-          <!-- gallery slider area start  -->
-          <div class="gallery-slider-area has_fade_anim">
+ <h1 style="justify-content: center; text-align: center; margin-bottom:0; margin-top:40px;  font-size:5rem; ">Our Services</h1>
+              
+         <!-- portfolio area start  -->
+          <section class="portfolio-area " style="aspect-ratio: 9/6;">
             <div class="container large">
-              <div class="gallery-slider">
-                <div class="swiper gallery-slider-active">
-                  <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                      <div class="gallery-slider-item" style="overflow:hidden;">
-                        <img src="assets/imgs/bghome/b2.png" width="375" height="470" alt="gallery image"
-                          style="transition:transform 0.4s ease; transform-origin:center center; object-fit:cover;">
+              <div class="portfolio-area-inner pt-0 mt-0">
+                 <div id="app" class="portfolio-slider">
+                  
+                  <!-- Carousel slider -->
+                  <div class="swiper portfolio-active">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide has_fade_anim" data-fade-from="bottom">
+                        <div class="swiper-carousel-animate-opacity">
+                          <img src="assets/imgs/bghome/b2.png" alt="image">
+                          <div class="slide-content">
+                            <h2 class="title">Panjarik iron</h2>
+                            <span class="tag">Fashion -2017</span>
+                          </div>
+                          <h2 class="title-overlay" style="justify-content: center; text-align:center;  margin-top:20px;">Fashion Shoot</h2>
+                        </div>
                       </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                      <div class="gallery-slider-item" style="overflow:hidden;">
-                        <img src="assets/imgs/bghome/b1.png" width="910" height="600" alt="gallery image"
-                          style="transition:transform 0.4s ease; transform-origin:center center; object-fit:cover;">
+                      <div class="swiper-slide">
+                        <div class="swiper-carousel-animate-opacity">
+                          <img src="assets/imgs/bghome/b1.png" alt="image">
+                          <div class="slide-content">
+                            <h2 class="title">Panjarik iron</h2>
+                            <span class="tag">Fashion -2017</span>
+                          </div>
+                          <h2 class="title-overlay" style="justify-content: center; text-align:center;  margin-top:20px;">Fashion Shoot</h2>
+                        </div>
                       </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                      <div class="gallery-slider-item" style="overflow:hidden;">
-                        <img src="assets/imgs/bghome/b4.png" width="375" height="470" alt="gallery image"
-                          style="transition:transform 0.4s ease; transform-origin:center center; object-fit:cover;">
+                      <div class="swiper-slide">
+                        <div class="swiper-carousel-animate-opacity">
+                          <img src="assets/imgs/bghome/b3.png" alt="image">
+                          <div class="slide-content">
+                            <h2 class="title">Panjarik iron</h2>
+                            <span class="tag">Fashion -2017</span>
+                          </div>
+                          <h2 class="title-overlay" style="justify-content: center; text-align:center;  margin-top:20px;">Fashion Shoot</h2>
+                        </div>
                       </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                      <div class="gallery-slider-item" style="overflow:hidden;">
-                        <img src="assets/imgs/bghome/b3.png" width="910" height="600" alt="gallery image"
-                          style="transition:transform 0.4s ease; transform-origin:center center; object-fit:cover;">
+                      <div class="swiper-slide">
+                        <div class="swiper-carousel-animate-opacity">
+                          <img src="assets/imgs/bghome/b4.png" alt="image">
+                          <div class="slide-content">
+                            <h2 class="title">Panjarik iron</h2>
+                            <span class="tag">Fashion -2017</span>
+                          </div>
+                          <h2 class="title-overlay" style="justify-content: center; text-align:center; margin-top:20px;">Fashion Shoot</h2>
+                        </div>
                       </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                      <div class="gallery-slider-item" style="overflow:hidden;">
-                        <img src="assets/imgs/bghome/b5.png" width="375" height="470" alt="gallery image"
-                          style="transition:transform 0.4s ease; transform-origin:center center; object-fit:cover;">
-                      </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                      <div class="gallery-slider-item" style="overflow:hidden;">
-                        <img src="assets/imgs/bghome/b6.png" width="910" height="600" alt="gallery image"
-                          style="transition:transform 0.4s ease; transform-origin:center center; object-fit:cover;">
-                      </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                      <div class="gallery-slider-item" style="overflow:hidden;">
-                        <img src="assets/imgs/bghome/b7.png" width="375" height="470" alt="gallery image"
-                          style="transition:transform 0.4s ease; transform-origin:center center; object-fit:cover;">
+                      <div class="swiper-slide">
+                        <div class="swiper-carousel-animate-opacity">
+                          <img src="assets/imgs/bghome/b5.png" alt="image">
+                          <div class="slide-content">
+                            <h2 class="title">Panjarik iron</h2>
+                            <span class="tag">Fashion -2017</span>
+                          </div>
+                          <h2 class="title-overlay" style="justify-content: center; text-align:center;  margin-top:20px;">Fashion Shoot</h2>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div class="gallery-pagination pagination-dot"></div>
+                  <div class="slider-nav overflow-hidden">
+                    <div class="portfolio-button-prev nav-icon has_fade_anim" data-fade-from="left" data-on-scroll="0"
+                      data-delay="0.30">
+                      <i class="fa-solid fa-angle-left"></i>Prev
+                    </div>
+                    <div class="portfolio-button-next nav-icon has_fade_anim" data-fade-from="right" data-on-scroll="0"
+                      data-delay="0.30">
+                      Next<i class="fa-solid fa-angle-right"></i>
+                    </div>
+                  </div>
+                  <div class="portfolio-pagination has_fade_anim" data-fade-from="bottom" data-fade-offset="0"
+                    data-on-scroll="0" data-delay="0.45"></div>
                 </div>
               </div>
             </div>
-          </div>
-          <!-- gallery slider area end  -->
-          <style>
-            .gallery-slider-item:hover img {
-              transform: scale(1.06);
-            }
-          </style>
+          </section>
+         
+
+          
 
 
           <!-- about area start  -->
@@ -918,6 +957,50 @@
     }
   }
 </script>
+<!-- Swiper Core -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+<!-- Effect Carousel -->
+<script src="assets/js/effect-carousel.min.js"></script>
+
+<!-- Your custom init -->
+<script src="assets/js/portfolio-carousel-init.js"></script>
+ <!-- portfolio area end  -->
+           <script>
+            document.addEventListener("DOMContentLoaded", () => {
+  const swiper = new Swiper(".portfolio-active", {
+    modules: [EffectCarousel],
+    effect: "carousel",
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: "auto",
+    loop: true,
+
+    carouselEffect: {
+      opacityStep: 0.25,
+      scaleStep: 0.2,
+      sideSlides: 3,
+    },
+
+    navigation: {
+      nextEl: ".portfolio-button-next",
+      prevEl: ".portfolio-button-prev",
+    },
+
+    pagination: {
+      el: ".portfolio-pagination",
+      clickable: true,
+    },
+
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    }
+  });
+});
+
+           </script>
+          
 </body>
 
 </html>
